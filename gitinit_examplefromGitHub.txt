@@ -1,0 +1,6 @@
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/josephcbaca/josephbaca.test_site_Horiseon.git
+git push -u origin master
+
