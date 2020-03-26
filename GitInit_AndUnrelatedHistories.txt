@@ -1,0 +1,125 @@
+Short Hand
+git init
+git remote add origin <ssh>
+git add <filename>
+git commit -m "<write message>"
+git push origin master -- resulted in "error: failed to push some refs to" (This was because Readme.txt was in GitRepo and in localRepo) 
+We moved Readme.txt out of local folder
+git pull -- resulted in "There is no tracking information for the current branch."
+git pull origin master  --resulted in "fatal: refusing to merge unrelated histories"
+git pull origin master --allow-unrelated-histories
+git push origin master
+
+
+Full Example
+
+git init
+Initialized empty Git repository in C:/Users/josep/dev/uwbc/.git/
+
+josep@LAPTOP-166CD8AM MINGW64 ~/dev/uwbc (master)
+$ rm -rf .git
+
+josep@LAPTOP-166CD8AM MINGW64 ~/dev/uwbc
+$ cd "C:\Users\josep\dev\uwbc\activities\01-HTML-Git-CSS\01-Activities\
+01-ConsoleCommands"
+
+josep@LAPTOP-166CD8AM MINGW64 ~/dev/uwbc/activities/01-HTML-Git-CSS/01-Activities/01-ConsoleCommands
+$ git init
+Initialized empty Git repository in C:/Users/josep/dev/uwbc/activities/01-HTML-Git-CSS/01-Activities/01-ConsoleCommands/.git/
+
+josep@LAPTOP-166CD8AM MINGW64 ~/dev/uwbc/activities/01-HTML-Git-CSS/01-Activities/01-ConsoleCommands (master)
+$ git remote add origin git@github.com:josephcbaca/thisisatestrepo_1.gi t
+
+josep@LAPTOP-166CD8AM MINGW64 ~/dev/uwbc/activities/01-HTML-Git-CSS/01-Activities/01-ConsoleCommands (master)
+$ ls
+bash-terminal-commands-cheatshet.md  README.md
+
+josep@LAPTOP-166CD8AM MINGW64 ~/dev/uwbc/activities/01-HTML-Git-CSS/01-Activities/01-ConsoleCommands (master)
+$ git add bash-terminal-commands-cheatshet.md
+
+josep@LAPTOP-166CD8AM MINGW64 ~/dev/uwbc/activities/01-HTML-Git-CSS/01-Activities/01-ConsoleCommands (master)
+$ git commit -m "Initial message"
+[master (root-commit) 092bfed] Initial message
+ 1 file changed, 76 insertions(+)
+ create mode 100644 bash-terminal-commands-cheatshet.md
+
+josep@LAPTOP-166CD8AM MINGW64 ~/dev/uwbc/activities/01-HTML-Git-CSS/01-Activities/01-ConsoleCommands (master)
+$ git push origin master
+Warning: Permanently added the RSA host key for IP address '140.82.113.3' to the list of known hosts.
+Enter passphrase for key '/c/Users/josep/.ssh/id_rsa':
+Enter passphrase for key '/c/Users/josep/.ssh/id_rsa':
+To github.com:josephcbaca/thisisatestrepo_1.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'git@github.com:josephcbaca/thisisatestrepo_1.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+josep@LAPTOP-166CD8AM MINGW64 ~/dev/uwbc/activities/01-HTML-Git-CSS/01-Activities/01-ConsoleCommands (master)
+$ mv README.md ../
+
+josep@LAPTOP-166CD8AM MINGW64 ~/dev/uwbc/activities/01-HTML-Git-CSS/01-Activities/01-ConsoleCommands (master)
+$ git pull
+Warning: Permanently added the RSA host key for IP address '140.82.114.3' to the list of known hosts.
+Enter passphrase for key '/c/Users/josep/.ssh/id_rsa':
+warning: no common commits
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 607 bytes | 17.00 KiB/s, done.
+From github.com:josephcbaca/thisisatestrepo_1
+ * [new branch]      master     -> origin/master
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> master
+
+
+josep@LAPTOP-166CD8AM MINGW64 ~/dev/uwbc/activities/01-HTML-Git-CSS/01-Activities/01-ConsoleCommands (master)
+$ git pull origin/master
+fatal: 'origin/master' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+josep@LAPTOP-166CD8AM MINGW64 ~/dev/uwbc/activities/01-HTML-Git-CSS/01-Activities/01-ConsoleCommands (master)
+$ git pull origin master
+Warning: Permanently added the RSA host key for IP address '140.82.112.4' to the list of known hosts.
+Enter passphrase for key '/c/Users/josep/.ssh/id_rsa':
+From github.com:josephcbaca/thisisatestrepo_1
+ * branch            master     -> FETCH_HEAD
+fatal: refusing to merge unrelated histories
+
+josep@LAPTOP-166CD8AM MINGW64 ~/dev/uwbc/activities/01-HTML-Git-CSS/01-Activities/01-ConsoleCommands (master)
+$ git pull origin master --allow-unrelated-histories
+Warning: Permanently added the RSA host key for IP address '140.82.114.4' to the list of known hosts.
+Enter passphrase for key '/c/Users/josep/.ssh/id_rsa':
+From github.com:josephcbaca/thisisatestrepo_1
+ * branch            master     -> FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 README.md
+
+josep@LAPTOP-166CD8AM MINGW64 ~/dev/uwbc/activities/01-HTML-Git-CSS/01-Activities/01-ConsoleCommands (master)
+$ git push origin master
+Enter passphrase for key '/c/Users/josep/.ssh/id_rsa':
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 1.01 KiB | 516.00 KiB/s, done.
+Total 5 (delta 0), reused 0 (delta 0)
+To github.com:josephcbaca/thisisatestrepo_1.git
+   34937a4..d163968  master -> master
+
+josep@LAPTOP-166CD8AM MINGW64 ~/dev/uwbc/activities/01-HTML-Git-CSS/01-Activities/01-ConsoleCommands (master)
+$
